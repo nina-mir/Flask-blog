@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<h1>{% block title %} Minimal blog powered by Flask {% endblock %}</h1>
+<hr class="border border-primary border-3 opacity-5">
+{% for post in posts %}
+<a href="{{ url_for('post', post_id=post.id) }}">
+    <h3>{{ post.title }}</h3>
+</a>
+<span class="badge bg-success">{{ post.created }}</span>
+<a href="{{ url_for('edit', post_id=post.id) }}">
+    <span class="badge bg-warning">Edit</span>
+</a>
+<hr>
+{% endfor %}
+{% endblock %}
